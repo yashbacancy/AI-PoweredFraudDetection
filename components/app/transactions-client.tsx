@@ -10,9 +10,6 @@ import { Modal } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { IS_LOCAL_DB_MODE_CLIENT } from "@/lib/mode";
-import { calculateRiskScore, scoreToStatus } from "@/lib/risk";
-import { createClient } from "@/lib/supabase/client";
 import { currency, formatDate } from "@/lib/utils";
 import type { Transaction } from "@/lib/types";
 
@@ -89,13 +86,6 @@ export function TransactionsClient({ initialData }: { initialData: Transaction[]
       return;
     }
 
-    const risk_score = calculateRiskScore(form);
-    const basePayload = {
-      ...form,
-      risk_score,
-      status: scoreToStatus(risk_score),
-    };
-
     const behavioral_biometrics = {
       typing_cadence_ms: toOptionalNumber(form.typing_cadence_ms),
       pointer_velocity: toOptionalNumber(form.pointer_velocity),
@@ -104,7 +94,12 @@ export function TransactionsClient({ initialData }: { initialData: Transaction[]
     };
     const hasBiometrics = Object.values(behavioral_biometrics).some((value) => value !== undefined);
     const localPayload = {
-      ...basePayload,
+      merchant_name: form.merchant_name,
+      amount: form.amount,
+      payment_method: form.payment_method,
+      ip_address: form.ip_address,
+      country: form.country,
+      device_id: form.device_id,
       channel: form.channel,
       behavioral_biometrics: hasBiometrics ? behavioral_biometrics : null,
     };
@@ -112,38 +107,10 @@ export function TransactionsClient({ initialData }: { initialData: Transaction[]
     setSaving(true);
 
     try {
-      if (IS_LOCAL_DB_MODE_CLIENT) {
-        const url = editing ? `/api/transactions/${editing.id}` : "/api/transactions";
-        const method = editing ? "PATCH" : "POST";
-        const data = await fetchJson<Transaction>(url, { method, body: JSON.stringify(localPayload) });
-        setItems((prev) => (editing ? prev.map((item) => (item.id === data.id ? data : item)) : [data, ...prev]));
-      } else {
-        const supabase = createClient();
-        const supabasePayload = {
-          merchant_name: form.merchant_name,
-          amount: form.amount,
-          payment_method: form.payment_method,
-          ip_address: form.ip_address,
-          country: form.country,
-          device_id: form.device_id,
-          risk_score,
-          status: scoreToStatus(risk_score),
-        };
-        if (editing) {
-          const { data, error } = await supabase
-            .from("transactions")
-            .update(supabasePayload)
-            .eq("id", editing.id)
-            .select()
-            .single();
-          if (error) throw error;
-          setItems((prev) => prev.map((item) => (item.id === data.id ? data : item)));
-        } else {
-          const { data, error } = await supabase.from("transactions").insert(supabasePayload).select().single();
-          if (error) throw error;
-          setItems((prev) => [data, ...prev]);
-        }
-      }
+      const url = editing ? `/api/transactions/${editing.id}` : "/api/transactions";
+      const method = editing ? "PATCH" : "POST";
+      const data = await fetchJson<Transaction>(url, { method, body: JSON.stringify(localPayload) });
+      setItems((prev) => (editing ? prev.map((item) => (item.id === data.id ? data : item)) : [data, ...prev]));
 
       toast.success(editing ? "Transaction updated" : "Transaction created");
       setOpen(false);
@@ -247,13 +214,7 @@ export function TransactionsClient({ initialData }: { initialData: Transaction[]
                         description="This action cannot be undone."
                         onConfirm={async () => {
                           try {
-                            if (IS_LOCAL_DB_MODE_CLIENT) {
-                              await fetchJson(`/api/transactions/${item.id}`, { method: "DELETE" });
-                            } else {
-                              const supabase = createClient();
-                              const { error } = await supabase.from("transactions").delete().eq("id", item.id);
-                              if (error) throw error;
-                            }
+                            await fetchJson(`/api/transactions/${item.id}`, { method: "DELETE" });
                             setItems((prev) => prev.filter((tx) => tx.id !== item.id));
                             toast.success("Transaction deleted");
                           } catch (error) {

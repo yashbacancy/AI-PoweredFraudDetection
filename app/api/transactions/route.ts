@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 
 import { createLocalTransaction, getLocalTransactions } from "@/lib/local/repository";
+import { IS_LOCAL_DB_MODE } from "@/lib/mode";
+import { createSupabaseTransaction, getSupabaseTransactions } from "@/lib/supabase/repository";
 
 export async function GET() {
-  const data = await getLocalTransactions();
+  const data = IS_LOCAL_DB_MODE
+    ? await getLocalTransactions()
+    : await getSupabaseTransactions();
   return NextResponse.json(data);
 }
 
@@ -17,7 +21,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Invalid amount" }, { status: 400 });
   }
 
-  const data = await createLocalTransaction({
+  const payload = {
     merchant_name: body.merchant_name,
     amount,
     payment_method: body.payment_method,
@@ -28,7 +32,11 @@ export async function POST(request: Request) {
     currency: body.currency ?? "USD",
     channel: body.channel ?? "web",
     behavioral_biometrics: body.behavioral_biometrics ?? null,
-  });
+  };
+
+  const data = IS_LOCAL_DB_MODE
+    ? await createLocalTransaction(payload)
+    : await createSupabaseTransaction(payload);
 
   return NextResponse.json(data);
 }

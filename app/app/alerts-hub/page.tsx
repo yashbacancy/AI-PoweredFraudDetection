@@ -1,12 +1,15 @@
 import { TopHeader } from "@/components/app/top-header";
 import { AlertsHubClient } from "@/components/app/alerts-hub-client";
 import { getLocalAlerts, getLocalApiIntegrations } from "@/lib/local/management-repository";
+import { getSupabaseAlerts, getSupabaseApiIntegrations } from "@/lib/supabase/management-repository";
 import { IS_LOCAL_DB_MODE } from "@/lib/mode";
 
 export default async function AlertsHubPage() {
-  const [alerts, integrations] = IS_LOCAL_DB_MODE
-    ? await Promise.all([getLocalAlerts(120), getLocalApiIntegrations(40)])
-    : [[], []];
+  const [alerts, integrations] = await Promise.all(
+    IS_LOCAL_DB_MODE
+      ? [getLocalAlerts(120), getLocalApiIntegrations(40)]
+      : [getSupabaseAlerts(120), getSupabaseApiIntegrations(40)],
+  );
 
   return (
     <>
@@ -15,13 +18,7 @@ export default async function AlertsHubPage() {
         subtitle="Create, update, route, and close fraud alerts with full notification channel control."
       />
       <div className="page-content">
-        {IS_LOCAL_DB_MODE ? (
-          <AlertsHubClient initialAlerts={alerts} initialIntegrations={integrations} />
-        ) : (
-          <section className="content-card">
-            <p>Full Alerts Hub CRUD is currently enabled in local mode.</p>
-          </section>
-        )}
+        <AlertsHubClient initialAlerts={alerts} initialIntegrations={integrations} />
       </div>
     </>
   );

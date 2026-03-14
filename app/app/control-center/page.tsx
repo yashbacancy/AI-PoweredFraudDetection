@@ -12,6 +12,13 @@ import {
   getLocalRiskRules,
 } from "@/lib/local/management-repository";
 import { IS_LOCAL_DB_MODE } from "@/lib/mode";
+import {
+  getSupabaseAlerts,
+  getSupabaseApiIntegrations,
+  getSupabaseFeatureMetrics,
+  getSupabaseModelRegistry,
+  getSupabaseRiskRules,
+} from "@/lib/supabase/management-repository";
 
 const menus = [
   {
@@ -59,15 +66,23 @@ const menus = [
 ];
 
 export default async function ControlCenterPage() {
-  const [metrics, rules, models, alerts, integrations] = IS_LOCAL_DB_MODE
-    ? await Promise.all([
-        getLocalFeatureMetrics(),
-        getLocalRiskRules(24),
-        getLocalModelRegistry(10),
-        getLocalAlerts(20),
-        getLocalApiIntegrations(20),
-      ])
-    : [[], [], [], [], []];
+  const [metrics, rules, models, alerts, integrations] = await Promise.all(
+    IS_LOCAL_DB_MODE
+      ? [
+          getLocalFeatureMetrics(),
+          getLocalRiskRules(24),
+          getLocalModelRegistry(10),
+          getLocalAlerts(20),
+          getLocalApiIntegrations(20),
+        ]
+      : [
+          getSupabaseFeatureMetrics(),
+          getSupabaseRiskRules(24),
+          getSupabaseModelRegistry(10),
+          getSupabaseAlerts(20),
+          getSupabaseApiIntegrations(20),
+        ],
+  );
 
   return (
     <>
@@ -95,7 +110,7 @@ export default async function ControlCenterPage() {
         <section className="content-card">
           <h3>Feature Health Snapshot</h3>
           {metrics.length === 0 ? (
-            <p>Switch to local mode to see live operational metrics for all features.</p>
+            <p>No feature metrics available yet.</p>
           ) : (
             <div className="stats-grid" style={{ marginTop: 12 }}>
               {metrics.map((metric) => (
@@ -110,29 +125,21 @@ export default async function ControlCenterPage() {
           )}
         </section>
 
-        {IS_LOCAL_DB_MODE ? (
-          <>
-            <section className="content-card">
-              <h3>Control Center CRUD: Risk Rules</h3>
-              <p style={{ marginTop: 6, marginBottom: 12 }}>
-                Manage rules directly here or use the dedicated Risk Rules page for expanded operations.
-              </p>
-              <RiskRulesClient initialRules={rules} initialModels={models} compact />
-            </section>
+        <section className="content-card">
+          <h3>Control Center CRUD: Risk Rules</h3>
+          <p style={{ marginTop: 6, marginBottom: 12 }}>
+            Manage rules directly here or use the dedicated Risk Rules page for expanded operations.
+          </p>
+          <RiskRulesClient initialRules={rules} initialModels={models} compact />
+        </section>
 
-            <section className="content-card">
-              <h3>Control Center CRUD: Alerts + Integrations</h3>
-              <p style={{ marginTop: 6, marginBottom: 12 }}>
-                Operate alert queue and routing integrations from the central control console.
-              </p>
-              <AlertsHubClient initialAlerts={alerts} initialIntegrations={integrations} compact />
-            </section>
-          </>
-        ) : (
-          <section className="content-card">
-            <p>Control Center CRUD widgets are currently enabled in local mode.</p>
-          </section>
-        )}
+        <section className="content-card">
+          <h3>Control Center CRUD: Alerts + Integrations</h3>
+          <p style={{ marginTop: 6, marginBottom: 12 }}>
+            Operate alert queue and routing integrations from the central control console.
+          </p>
+          <AlertsHubClient initialAlerts={alerts} initialIntegrations={integrations} compact />
+        </section>
       </div>
     </>
   );

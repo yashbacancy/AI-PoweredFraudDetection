@@ -2,6 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import type {
   AlertRow,
   ApiIntegrationRow,
+  FeatureMetric,
+  ModelRegistryRow,
   RiskRuleRow,
   WatchlistRow,
 } from "@/lib/local/management-repository";
@@ -22,6 +24,79 @@ export async function getSupabaseRiskRules(limit = 40): Promise<RiskRuleRow[]> {
     .order("updated_at" as never, { ascending: false })
     .limit(limit);
   return ((data ?? []) as RiskRuleRow[]);
+}
+
+export async function getSupabaseModelRegistry(limit = 20): Promise<ModelRegistryRow[]> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("model_registry" as never)
+    .select("id, model_key, version, status, rollout_percent, review_threshold, block_threshold, updated_at")
+    .order("updated_at" as never, { ascending: false })
+    .limit(limit);
+  return (data ?? []) as ModelRegistryRow[];
+}
+
+export async function getSupabaseFeatureMetrics(): Promise<FeatureMetric[]> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return [];
+
+  const [transactions, openCases, activeRules, activeBlacklist, activeModels, pendingAlerts, reports, graphEdges] =
+    await Promise.all([
+      supabase
+        .from("transactions" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id),
+      supabase
+        .from("fraud_cases" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id)
+        .neq("status" as never, "resolved"),
+      supabase
+        .from("risk_rules" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id)
+        .eq("is_active" as never, true),
+      supabase
+        .from("entity_lists" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id)
+        .eq("list_type" as never, "blacklist")
+        .eq("is_active" as never, true),
+      supabase
+        .from("model_registry" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id)
+        .in("status" as never, ["active", "shadow"]),
+      supabase
+        .from("alerts" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id)
+        .in("status" as never, ["new", "sent", "acknowledged"]),
+      supabase
+        .from("compliance_reports" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id),
+      supabase
+        .from("graph_edges" as never)
+        .select("id", { count: "exact", head: true })
+        .eq("user_id" as never, user.id),
+    ]);
+
+  const safeCount = (count: number | null) => count ?? 0;
+
+  return [
+    { feature: "Transactions", count: safeCount(transactions.count) },
+    { feature: "Open Cases", count: safeCount(openCases.count) },
+    { feature: "Active Rules", count: safeCount(activeRules.count) },
+    { feature: "Active Blacklist", count: safeCount(activeBlacklist.count) },
+    { feature: "Active Models", count: safeCount(activeModels.count) },
+    { feature: "Pending Alerts", count: safeCount(pendingAlerts.count) },
+    { feature: "Compliance Reports", count: safeCount(reports.count) },
+    { feature: "Graph Edges", count: safeCount(graphEdges.count) },
+  ];
 }
 
 export async function createSupabaseRiskRule(payload: {

@@ -9,8 +9,6 @@ import { Modal } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { IS_LOCAL_DB_MODE_CLIENT } from "@/lib/mode";
-import { createClient } from "@/lib/supabase/client";
 import { formatDate } from "@/lib/utils";
 import type { FraudCase, Transaction } from "@/lib/types";
 
@@ -78,28 +76,10 @@ export function CasesClient({
     setSaving(true);
 
     try {
-      if (IS_LOCAL_DB_MODE_CLIENT) {
-        const url = editing ? `/api/cases/${editing.id}` : "/api/cases";
-        const method = editing ? "PATCH" : "POST";
-        const data = await fetchJson<FraudCase>(url, { method, body: JSON.stringify(payload) });
-        setItems((prev) => (editing ? prev.map((item) => (item.id === data.id ? data : item)) : [data, ...prev]));
-      } else {
-        const supabase = createClient();
-        if (editing) {
-          const { data, error } = await supabase
-            .from("fraud_cases")
-            .update(payload)
-            .eq("id", editing.id)
-            .select()
-            .single();
-          if (error) throw error;
-          setItems((prev) => prev.map((item) => (item.id === data.id ? data : item)));
-        } else {
-          const { data, error } = await supabase.from("fraud_cases").insert(payload).select().single();
-          if (error) throw error;
-          setItems((prev) => [data, ...prev]);
-        }
-      }
+      const url = editing ? `/api/cases/${editing.id}` : "/api/cases";
+      const method = editing ? "PATCH" : "POST";
+      const data = await fetchJson<FraudCase>(url, { method, body: JSON.stringify(payload) });
+      setItems((prev) => (editing ? prev.map((item) => (item.id === data.id ? data : item)) : [data, ...prev]));
 
       toast.success(editing ? "Case updated" : "Case created");
       setOpen(false);
@@ -188,13 +168,7 @@ export function CasesClient({
                         description="This action cannot be undone."
                         onConfirm={async () => {
                           try {
-                            if (IS_LOCAL_DB_MODE_CLIENT) {
-                              await fetchJson(`/api/cases/${item.id}`, { method: "DELETE" });
-                            } else {
-                              const supabase = createClient();
-                              const { error } = await supabase.from("fraud_cases").delete().eq("id", item.id);
-                              if (error) throw error;
-                            }
+                            await fetchJson(`/api/cases/${item.id}`, { method: "DELETE" });
                             setItems((prev) => prev.filter((current) => current.id !== item.id));
                             toast.success("Case deleted");
                           } catch (error) {
