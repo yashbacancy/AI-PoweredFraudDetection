@@ -1,0 +1,186 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Signal ingestion dashboard">
+  <rect width="1200" height="320" rx="16" fill="#0D1117"/>
+  <!-- Header bar -->
+  <rect width="1200" height="36" fill="#161B22"/>
+  <rect y="36" width="1200" height="1" fill="#30363D"/>
+  <circle cx="18" cy="18" r="5" fill="#FF5F57"/>
+  <circle cx="34" cy="18" r="5" fill="#FFBD2E"/>
+  <circle cx="50" cy="18" r="5" fill="#28C840"/>
+  <text x="600" y="23" font-family="ui-monospace,monospace" font-size="11" fill="#8B949E" text-anchor="middle">aegis — signal-ingestion — live</text>
+
+  <!-- LEFT PANEL: Signal Sources -->
+  <rect x="16" y="48" width="300" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="28" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">SIGNAL SOURCES</text>
+
+  <circle cx="36" cy="86" r="5" fill="#58A6FF"/>
+  <text x="50" y="90" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">Payment Gateway</text>
+  <rect x="230" y="80" width="52" height="14" rx="3" fill="#122d22"/>
+  <text x="240" y="91" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">● ACTIVE</text>
+
+  <rect x="28" y="99" width="272" height="1" fill="#21262D"/>
+  <circle cx="36" cy="114" r="5" fill="#3FB950"/>
+  <text x="50" y="118" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">Device Fingerprint</text>
+  <rect x="230" y="108" width="52" height="14" rx="3" fill="#122d22"/>
+  <text x="240" y="119" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">● ACTIVE</text>
+
+  <rect x="28" y="127" width="272" height="1" fill="#21262D"/>
+  <circle cx="36" cy="142" r="5" fill="#D2A8FF"/>
+  <text x="50" y="146" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">Identity / KYC</text>
+  <rect x="230" y="136" width="52" height="14" rx="3" fill="#122d22"/>
+  <text x="240" y="147" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">● ACTIVE</text>
+
+  <rect x="28" y="155" width="272" height="1" fill="#21262D"/>
+  <circle cx="36" cy="170" r="5" fill="#F78166"/>
+  <text x="50" y="174" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">Behavior Analytics</text>
+  <rect x="230" y="164" width="52" height="14" rx="3" fill="#122d22"/>
+  <text x="240" y="175" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">● ACTIVE</text>
+
+  <rect x="28" y="186" width="272" height="1" fill="#30363D"/>
+
+  <text x="28" y="204" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">THROUGHPUT</text>
+  <text x="28" y="228" font-family="ui-monospace,monospace" font-size="26" fill="#58A6FF" font-weight="700">1,284</text>
+  <text x="28" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">events / sec</text>
+
+  <text x="170" y="204" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">AVG LATENCY</text>
+  <text x="170" y="228" font-family="ui-monospace,monospace" font-size="26" fill="#3FB950" font-weight="700">42ms</text>
+  <text x="170" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">p99 · 87ms</text>
+
+  <rect x="28" y="254" width="272" height="1" fill="#21262D"/>
+  <text x="28" y="270" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Total events today</text>
+  <text x="28" y="288" font-family="ui-monospace,monospace" font-size="13" fill="#E6EDF3" font-weight="600">4,821,037</text>
+
+  <!-- CENTER PANEL: Live Event Stream -->
+  <rect x="328" y="48" width="526" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="340" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">LIVE EVENT STREAM</text>
+  <circle cx="470" cy="63" r="4" fill="#3FB950"/>
+  <text x="478" y="67" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">LIVE</text>
+
+  <!-- Table header -->
+  <rect x="328" y="74" width="526" height="20" fill="#1C2128"/>
+  <text x="340" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">TIMESTAMP</text>
+  <text x="440" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">EVENT ID</text>
+  <text x="570" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">TYPE</text>
+  <text x="650" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">AMOUNT</text>
+  <text x="744" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">STATUS</text>
+
+  <!-- Row 1 active highlight -->
+  <rect x="328" y="94" width="526" height="22" fill="#1f2937"/>
+  <text x="340" y="109" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF">14:23:08.441</text>
+  <text x="440" y="109" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_8f2a91c</text>
+  <text x="570" y="109" font-family="ui-monospace,monospace" font-size="9" fill="#D2A8FF">PAYMENT</text>
+  <text x="650" y="109" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$4,250.00</text>
+  <rect x="742" y="98" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="109" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <rect x="328" y="116" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="131" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:08.389</text>
+  <text x="440" y="131" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_3d7e20f</text>
+  <text x="570" y="131" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF">DEVICE</text>
+  <text x="650" y="131" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">—</text>
+  <rect x="742" y="120" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="131" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <!-- Flagged row -->
+  <rect x="328" y="138" width="526" height="1" fill="#21262D"/>
+  <rect x="328" y="139" width="526" height="22" fill="#1c1217"/>
+  <text x="340" y="154" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:08.201</text>
+  <text x="440" y="154" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_2d8a10e</text>
+  <text x="570" y="154" font-family="ui-monospace,monospace" font-size="9" fill="#D2A8FF">PAYMENT</text>
+  <text x="650" y="154" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$18,900.00</text>
+  <rect x="742" y="143" width="60" height="14" rx="3" fill="#3d1c1c"/>
+  <text x="748" y="154" font-family="ui-monospace,monospace" font-size="8" fill="#F78166">FLAGGED</text>
+
+  <rect x="328" y="161" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:07.994</text>
+  <text x="440" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_9a3f77d</text>
+  <text x="570" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#F78166">IDENTITY</text>
+  <text x="650" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">—</text>
+  <rect x="742" y="165" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="176" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <rect x="328" y="183" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="198" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:07.812</text>
+  <text x="440" y="198" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_5c1e38b</text>
+  <text x="570" y="198" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF">BEHAVIOR</text>
+  <text x="650" y="198" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">—</text>
+  <rect x="742" y="187" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="198" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <rect x="328" y="205" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="220" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:07.551</text>
+  <text x="440" y="220" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_1b9c44a</text>
+  <text x="570" y="220" font-family="ui-monospace,monospace" font-size="9" fill="#D2A8FF">PAYMENT</text>
+  <text x="650" y="220" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$812.50</text>
+  <rect x="742" y="209" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="220" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <rect x="328" y="227" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:07.210</text>
+  <text x="440" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_7f4b29c</text>
+  <text x="570" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#F78166">IDENTITY</text>
+  <text x="650" y="242" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">—</text>
+  <rect x="742" y="231" width="60" height="14" rx="3" fill="#342c06"/>
+  <text x="748" y="242" font-family="ui-monospace,monospace" font-size="8" fill="#D29922">PENDING</text>
+
+  <rect x="328" y="249" width="526" height="1" fill="#21262D"/>
+  <text x="340" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">14:23:06.988</text>
+  <text x="440" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_0e9d53f</text>
+  <text x="570" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF">DEVICE</text>
+  <text x="650" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">—</text>
+  <rect x="742" y="253" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="752" y="264" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">INGESTED</text>
+
+  <!-- RIGHT PANEL: API Health -->
+  <rect x="866" y="48" width="318" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="878" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">API HEALTH</text>
+
+  <text x="878" y="90" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Uptime (30d)</text>
+  <rect x="878" y="96" width="248" height="7" rx="3" fill="#21262D"/>
+  <rect x="878" y="96" width="247" height="7" rx="3" fill="#3FB950"/>
+  <text x="1152" y="103" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" text-anchor="end">99.97%</text>
+
+  <text x="878" y="120" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Error Rate</text>
+  <rect x="878" y="126" width="248" height="7" rx="3" fill="#21262D"/>
+  <rect x="878" y="126" width="7" height="7" rx="3" fill="#F78166"/>
+  <text x="1152" y="133" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" text-anchor="end">0.03%</text>
+
+  <text x="878" y="150" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Queue Depth</text>
+  <rect x="878" y="156" width="248" height="7" rx="3" fill="#21262D"/>
+  <rect x="878" y="156" width="100" height="7" rx="3" fill="#D2A8FF"/>
+  <text x="1152" y="163" font-family="ui-monospace,monospace" font-size="9" fill="#D2A8FF" text-anchor="end">412</text>
+
+  <rect x="878" y="174" width="248" height="1" fill="#30363D"/>
+  <text x="878" y="191" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">THROUGHPUT (60s)</text>
+
+  <!-- Sparkline bars -->
+  <rect x="878" y="265" width="6" height="26" rx="1" fill="#1F6FEB" opacity="0.55"/>
+  <rect x="887" y="259" width="6" height="32" rx="1" fill="#1F6FEB" opacity="0.6"/>
+  <rect x="896" y="262" width="6" height="29" rx="1" fill="#1F6FEB" opacity="0.65"/>
+  <rect x="905" y="254" width="6" height="37" rx="1" fill="#1F6FEB" opacity="0.7"/>
+  <rect x="914" y="257" width="6" height="34" rx="1" fill="#58A6FF" opacity="0.7"/>
+  <rect x="923" y="249" width="6" height="42" rx="1" fill="#58A6FF" opacity="0.75"/>
+  <rect x="932" y="245" width="6" height="46" rx="1" fill="#58A6FF" opacity="0.8"/>
+  <rect x="941" y="251" width="6" height="40" rx="1" fill="#58A6FF" opacity="0.8"/>
+  <rect x="950" y="241" width="6" height="50" rx="1" fill="#58A6FF" opacity="0.85"/>
+  <rect x="959" y="237" width="6" height="54" rx="1" fill="#58A6FF" opacity="0.9"/>
+  <rect x="968" y="243" width="6" height="48" rx="1" fill="#58A6FF"/>
+  <rect x="977" y="231" width="6" height="60" rx="1" fill="#79C0FF"/>
+  <rect x="986" y="227" width="6" height="64" rx="1" fill="#79C0FF"/>
+  <rect x="995" y="233" width="6" height="58" rx="1" fill="#79C0FF"/>
+  <rect x="1004" y="221" width="6" height="70" rx="1" fill="#79C0FF"/>
+  <rect x="1013" y="225" width="6" height="66" rx="1" fill="#79C0FF"/>
+  <rect x="1022" y="217" width="6" height="74" rx="1" fill="#58A6FF"/>
+  <rect x="1031" y="221" width="6" height="70" rx="1" fill="#58A6FF" opacity="0.9"/>
+  <rect x="1040" y="215" width="6" height="76" rx="1" fill="#58A6FF" opacity="0.85"/>
+  <rect x="1049" y="219" width="6" height="72" rx="1" fill="#58A6FF" opacity="0.8"/>
+  <rect x="1058" y="213" width="6" height="78" rx="1" fill="#58A6FF" opacity="0.75"/>
+  <rect x="1067" y="209" width="6" height="82" rx="1" fill="#58A6FF" opacity="0.7"/>
+  <rect x="1076" y="213" width="6" height="78" rx="1" fill="#58A6FF" opacity="0.65"/>
+  <rect x="1085" y="207" width="6" height="84" rx="1" fill="#58A6FF" opacity="0.6"/>
+  <rect x="1094" y="211" width="6" height="80" rx="1" fill="#58A6FF" opacity="0.55"/>
+  <rect x="1103" y="205" width="6" height="86" rx="1" fill="#58A6FF" opacity="0.5"/>
+  <rect x="1112" y="209" width="6" height="82" rx="1" fill="#58A6FF" opacity="0.45"/>
+
+  <text x="878" y="296" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">−60s</text>
+  <text x="1152" y="296" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">now</text>
+</svg>

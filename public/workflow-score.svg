@@ -1,0 +1,134 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk scoring engine dashboard">
+  <rect width="1200" height="320" rx="16" fill="#0D1117"/>
+  <!-- Header bar -->
+  <rect width="1200" height="36" fill="#161B22"/>
+  <rect y="36" width="1200" height="1" fill="#30363D"/>
+  <circle cx="18" cy="18" r="5" fill="#FF5F57"/>
+  <circle cx="34" cy="18" r="5" fill="#FFBD2E"/>
+  <circle cx="50" cy="18" r="5" fill="#28C840"/>
+  <text x="600" y="23" font-family="ui-monospace,monospace" font-size="11" fill="#8B949E" text-anchor="middle">aegis — risk-engine — scoring</text>
+
+  <!-- LEFT PANEL: Transaction Details -->
+  <rect x="16" y="48" width="310" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="28" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">TRANSACTION DETAIL</text>
+
+  <text x="28" y="90" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Event ID</text>
+  <text x="28" y="106" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3" font-weight="600">txn_2d8a10e</text>
+
+  <rect x="28" y="114" width="280" height="1" fill="#21262D"/>
+  <text x="28" y="130" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Amount</text>
+  <text x="28" y="146" font-family="ui-monospace,monospace" font-size="16" fill="#F78166" font-weight="700">$18,900.00</text>
+
+  <rect x="28" y="155" width="280" height="1" fill="#21262D"/>
+  <text x="28" y="171" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Merchant</text>
+  <text x="28" y="187" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">Luxury Goods Int'l</text>
+
+  <rect x="28" y="195" width="280" height="1" fill="#21262D"/>
+  <text x="28" y="211" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Card / Network</text>
+  <text x="28" y="227" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">•••• •••• •••• 4821  VISA</text>
+
+  <rect x="28" y="235" width="280" height="1" fill="#21262D"/>
+  <text x="28" y="251" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">IP / Country</text>
+  <text x="28" y="267" font-family="ui-monospace,monospace" font-size="10" fill="#E6EDF3">185.220.101.x  <tspan fill="#F78166">NG</tspan></text>
+
+  <rect x="28" y="275" width="280" height="1" fill="#21262D"/>
+  <text x="28" y="291" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Timestamp</text>
+  <text x="145" y="291" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">2026-03-14  14:23:08</text>
+
+  <!-- CENTER PANEL: Risk Gauge -->
+  <rect x="338" y="48" width="460" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="350" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">RISK SCORE</text>
+
+  <!-- Gauge background track (top semicircle, center 568,195 r=88) -->
+  <!-- M (568-88,195) = (480,195) A 88,88 0 0,0 (568+88,195) = (656,195) -->
+  <path d="M 480,195 A 88,88 0 0,0 656,195" stroke="#21262D" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- Gauge fill: 0.93 * 180° = 167.4° counterclockwise from left -->
+  <!-- End: x=568+88*cos(12.6°)=568+85.9=653.9, y=195-88*sin(12.6°)=195-19.2=175.8 -->
+  <path d="M 480,195 A 88,88 0 0,0 654,176" stroke="url(#score-fill)" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- Tip indicator circle -->
+  <circle cx="654" cy="176" r="7" fill="#F97316"/>
+  <circle cx="654" cy="176" r="13" stroke="#F97316" stroke-opacity="0.3" stroke-width="2" fill="none"/>
+
+  <defs>
+    <linearGradient id="score-fill" x1="480" y1="195" x2="656" y2="107" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3FB950"/>
+      <stop offset="0.4" stop-color="#D29922"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Score value -->
+  <text x="568" y="188" font-family="ui-monospace,monospace" font-size="38" fill="#F97316" font-weight="700" text-anchor="middle">0.93</text>
+  <text x="568" y="210" font-family="ui-monospace,monospace" font-size="12" fill="#F97316" text-anchor="middle" font-weight="600">HIGH RISK</text>
+
+  <!-- Gauge labels -->
+  <text x="480" y="215" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="middle">0.0</text>
+  <text x="568" y="115" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="middle">0.5</text>
+  <text x="656" y="215" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="middle">1.0</text>
+
+  <!-- Model info -->
+  <rect x="350" y="224" width="436" height="1" fill="#30363D"/>
+  <text x="350" y="241" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Model</text>
+  <text x="450" y="241" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">fraud-xgb-v4.1</text>
+  <text x="600" y="241" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Latency</text>
+  <text x="680" y="241" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">38ms</text>
+
+  <text x="350" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Threshold</text>
+  <text x="450" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">0.75  →  BLOCK</text>
+  <text x="600" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Confidence</text>
+  <text x="680" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#F97316">96.4%</text>
+
+  <text x="350" y="279" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Decision</text>
+  <rect x="450" y="268" width="52" height="16" rx="4" fill="#3d1c1c"/>
+  <text x="460" y="280" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" font-weight="700">BLOCK</text>
+  <text x="520" y="279" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">← policy match: HIGH_RISK_GEO</text>
+
+  <!-- RIGHT PANEL: Feature Breakdown -->
+  <rect x="810" y="48" width="374" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="822" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">FEATURE SIGNALS</text>
+
+  <!-- Feature 1: Velocity -->
+  <text x="822" y="92" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Velocity (1h)</text>
+  <text x="1142" y="92" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" text-anchor="end">0.97</text>
+  <rect x="822" y="97" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="97" width="299" height="7" rx="3" fill="#F78166"/>
+
+  <!-- Feature 2: Device match -->
+  <text x="822" y="120" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Device Match</text>
+  <text x="1142" y="120" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" text-anchor="end">0.91</text>
+  <rect x="822" y="125" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="125" width="280" height="7" rx="3" fill="#F78166"/>
+
+  <!-- Feature 3: Geo risk -->
+  <text x="822" y="148" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Geo Risk</text>
+  <text x="1142" y="148" font-family="ui-monospace,monospace" font-size="9" fill="#D29922" text-anchor="end">0.88</text>
+  <rect x="822" y="153" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="153" width="271" height="7" rx="3" fill="#D29922"/>
+
+  <!-- Feature 4: Amount anomaly -->
+  <text x="822" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Amount Anomaly</text>
+  <text x="1142" y="176" font-family="ui-monospace,monospace" font-size="9" fill="#D29922" text-anchor="end">0.84</text>
+  <rect x="822" y="181" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="181" width="259" height="7" rx="3" fill="#D29922"/>
+
+  <!-- Feature 5: Identity -->
+  <text x="822" y="204" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Identity Score</text>
+  <text x="1142" y="204" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF" text-anchor="end">0.62</text>
+  <rect x="822" y="209" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="209" width="191" height="7" rx="3" fill="#58A6FF"/>
+
+  <!-- Feature 6: Merchant -->
+  <text x="822" y="232" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Merchant History</text>
+  <text x="1142" y="232" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" text-anchor="end">0.38</text>
+  <rect x="822" y="237" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="237" width="117" height="7" rx="3" fill="#3FB950"/>
+
+  <!-- Feature 7: Behavior -->
+  <text x="822" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Behavior Pattern</text>
+  <text x="1142" y="260" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" text-anchor="end">0.21</text>
+  <rect x="822" y="265" width="308" height="7" rx="3" fill="#21262D"/>
+  <rect x="822" y="265" width="65" height="7" rx="3" fill="#3FB950"/>
+
+  <rect x="822" y="280" width="308" height="1" fill="#21262D"/>
+  <text x="822" y="295" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">7 signals evaluated  ·  top contributors: velocity, device, geo</text>
+</svg>

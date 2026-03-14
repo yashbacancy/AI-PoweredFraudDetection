@@ -1,0 +1,149 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Model learning dashboard">
+  <rect width="1200" height="320" rx="16" fill="#0D1117"/>
+  <!-- Header bar -->
+  <rect width="1200" height="36" fill="#161B22"/>
+  <rect y="36" width="1200" height="1" fill="#30363D"/>
+  <circle cx="18" cy="18" r="5" fill="#FF5F57"/>
+  <circle cx="34" cy="18" r="5" fill="#FFBD2E"/>
+  <circle cx="50" cy="18" r="5" fill="#28C840"/>
+  <text x="600" y="23" font-family="ui-monospace,monospace" font-size="11" fill="#8B949E" text-anchor="middle">aegis — model-ops — continuous learning</text>
+
+  <!-- LEFT PANEL: Model Metrics -->
+  <rect x="16" y="48" width="296" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="28" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">MODEL METRICS  ·  fraud-xgb-v4.1</text>
+
+  <!-- Precision -->
+  <rect x="28" y="76" width="130" height="54" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="40" y="93" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">PRECISION</text>
+  <text x="40" y="116" font-family="ui-monospace,monospace" font-size="20" fill="#3FB950" font-weight="700">96.1%</text>
+
+  <!-- Recall -->
+  <rect x="170" y="76" width="130" height="54" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="182" y="93" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">RECALL</text>
+  <text x="182" y="116" font-family="ui-monospace,monospace" font-size="20" fill="#58A6FF" font-weight="700">94.7%</text>
+
+  <!-- F1 Score -->
+  <rect x="28" y="140" width="130" height="54" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="40" y="157" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">F1 SCORE</text>
+  <text x="40" y="180" font-family="ui-monospace,monospace" font-size="20" fill="#D2A8FF" font-weight="700">95.4%</text>
+
+  <!-- AUC-ROC -->
+  <rect x="170" y="140" width="130" height="54" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="182" y="157" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">AUC-ROC</text>
+  <text x="182" y="180" font-family="ui-monospace,monospace" font-size="20" fill="#F97316" font-weight="700">0.992</text>
+
+  <rect x="28" y="204" width="272" height="1" fill="#21262D"/>
+
+  <!-- Version history -->
+  <text x="28" y="220" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">VERSION HISTORY</text>
+  <text x="28" y="236" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">v4.1  <tspan fill="#3FB950">●</tspan>  <tspan fill="#6E7681">current</tspan>   AUC 0.992</text>
+  <text x="28" y="252" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">v4.0     prev            AUC 0.981</text>
+  <text x="28" y="268" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">v3.9                        AUC 0.974</text>
+  <text x="28" y="284" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">v3.8                        AUC 0.961</text>
+  <text x="28" y="296" font-family="ui-monospace,monospace" font-size="8" fill="#484f58">Retrain cadence: weekly  ·  triggered by chargebacks</text>
+
+  <!-- CENTER PANEL: Performance Chart -->
+  <rect x="324" y="48" width="510" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="336" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">DETECTION ACCURACY (12 WEEKS)</text>
+
+  <!-- Chart area -->
+  <rect x="336" y="78" width="486" height="170" rx="4" fill="#0D1117"/>
+
+  <!-- Y-axis grid lines -->
+  <line x1="336" y1="78" x2="822" y2="78" stroke="#21262D" stroke-width="1"/>
+  <line x1="336" y1="120" x2="822" y2="120" stroke="#21262D" stroke-width="1"/>
+  <line x1="336" y1="163" x2="822" y2="163" stroke="#21262D" stroke-width="1"/>
+  <line x1="336" y1="205" x2="822" y2="205" stroke="#21262D" stroke-width="1"/>
+  <line x1="336" y1="248" x2="822" y2="248" stroke="#21262D" stroke-width="1"/>
+
+  <!-- Y labels -->
+  <text x="332" y="82" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">100%</text>
+  <text x="332" y="124" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">98%</text>
+  <text x="332" y="167" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">96%</text>
+  <text x="332" y="209" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">94%</text>
+  <text x="332" y="252" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681" text-anchor="end">92%</text>
+
+  <!-- Precision line (green) — rising trend -->
+  <polyline points="356,218 392,209 428,205 464,196 500,188 536,180 572,168 608,155 644,142 680,130 716,119 752,108 788,95 810,88"
+    stroke="#3FB950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Recall line (blue) — slightly below precision -->
+  <polyline points="356,226 392,218 428,214 464,206 500,198 536,190 572,182 608,171 644,160 680,148 716,137 752,126 788,112 810,100"
+    stroke="#58A6FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Model retrain markers -->
+  <line x1="500" y1="78" x2="500" y2="248" stroke="#D2A8FF" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="500" y="263" font-family="ui-monospace,monospace" font-size="7" fill="#D2A8FF" text-anchor="middle">v4.0</text>
+  <line x1="716" y1="78" x2="716" y2="248" stroke="#D2A8FF" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="716" y="263" font-family="ui-monospace,monospace" font-size="7" fill="#D2A8FF" text-anchor="middle">v4.1</text>
+
+  <!-- Latest data points -->
+  <circle cx="810" cy="88" r="4" fill="#3FB950"/>
+  <circle cx="810" cy="100" r="4" fill="#58A6FF"/>
+
+  <!-- X-axis labels -->
+  <text x="356" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W1</text>
+  <text x="392" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W2</text>
+  <text x="428" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W3</text>
+  <text x="464" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W4</text>
+  <text x="500" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W5</text>
+  <text x="536" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W6</text>
+  <text x="572" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W7</text>
+  <text x="608" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W8</text>
+  <text x="644" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W9</text>
+  <text x="680" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W10</text>
+  <text x="716" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W11</text>
+  <text x="752" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#6E7681" text-anchor="middle">W12</text>
+  <text x="810" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#3FB950" text-anchor="middle">now</text>
+
+  <!-- Legend -->
+  <line x1="336" y1="292" x2="352" y2="292" stroke="#3FB950" stroke-width="2"/>
+  <text x="356" y="295" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">Precision</text>
+  <line x1="420" y1="292" x2="436" y2="292" stroke="#58A6FF" stroke-width="2"/>
+  <text x="440" y="295" font-family="ui-monospace,monospace" font-size="8" fill="#58A6FF">Recall</text>
+  <line x1="490" y1="292" x2="506" y2="292" stroke="#D2A8FF" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="510" y="295" font-family="ui-monospace,monospace" font-size="8" fill="#D2A8FF">Model retrain</text>
+
+  <!-- RIGHT PANEL: Training Status + Feedback -->
+  <rect x="846" y="48" width="338" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="858" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">TRAINING PIPELINE</text>
+
+  <!-- Status -->
+  <rect x="858" y="76" width="314" height="50" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="870" y="93" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Next retrain</text>
+  <text x="1010" y="93" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" text-anchor="end">2026-03-21  02:00 UTC</text>
+  <text x="870" y="113" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Status</text>
+  <rect x="1000" y="103" width="60" height="14" rx="3" fill="#122d22"/>
+  <text x="1009" y="114" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">READY</text>
+
+  <rect x="858" y="134" width="314" height="1" fill="#21262D"/>
+  <text x="858" y="151" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">FEEDBACK QUEUE</text>
+
+  <!-- Feedback items -->
+  <rect x="858" y="157" width="314" height="22" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <rect x="858" y="157" width="3" height="22" rx="1" fill="#F78166"/>
+  <text x="868" y="172" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Chargeback  txn_3d7e20f</text>
+  <text x="1150" y="172" font-family="ui-monospace,monospace" font-size="8" fill="#F78166" text-anchor="end">FALSE NEG</text>
+
+  <rect x="858" y="183" width="314" height="22" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <rect x="858" y="183" width="3" height="22" rx="1" fill="#58A6FF"/>
+  <text x="868" y="198" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Analyst clear  txn_9a3f77d</text>
+  <text x="1150" y="198" font-family="ui-monospace,monospace" font-size="8" fill="#58A6FF" text-anchor="end">FALSE POS</text>
+
+  <rect x="858" y="209" width="314" height="22" rx="4" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <rect x="858" y="209" width="3" height="22" rx="1" fill="#3FB950"/>
+  <text x="868" y="224" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">Confirmed fraud  txn_2d8a10e</text>
+  <text x="1150" y="224" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950" text-anchor="end">TRUE POS</text>
+
+  <rect x="858" y="239" width="314" height="1" fill="#21262D"/>
+
+  <text x="858" y="255" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Feedback items collected (7d)</text>
+  <text x="1152" y="255" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" text-anchor="end">4,218</text>
+
+  <text x="858" y="270" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Chargebacks (7d)</text>
+  <text x="1152" y="270" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" text-anchor="end">23</text>
+
+  <text x="858" y="285" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Training samples</text>
+  <text x="1152" y="285" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" text-anchor="end">2.1M</text>
+
+  <text x="858" y="298" font-family="ui-monospace,monospace" font-size="8" fill="#484f58">Auto-retrains on &gt;50 chargebacks  ·  or weekly schedule</text>
+</svg>

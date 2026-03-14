@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aegis
 
-## Getting Started
+AI-Powered Fraud Detection & Prevention Platform built with Next.js App Router.
 
-First, run the development server:
+## Modes
+
+- `local`: uses local PostgreSQL directly (no Supabase required)
+- `supabase`: uses Supabase Auth + DB
+
+Default is `local` mode.
+
+## Local PostgreSQL setup (first)
+
+1. Use Node.js `>=20.9.0`.
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create env:
+
+```bash
+cp .env.example .env.local
+```
+
+4. Start local Postgres (example with Docker):
+
+```bash
+docker run --name aegis-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=aegis -p 5432:5432 -d postgres:16
+```
+
+5. Run schema + seed:
+
+```bash
+psql postgres://postgres:postgres@localhost:5432/aegis -f supabase/local-postgres.sql
+```
+
+6. Start app:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Switch to Supabase later
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+When you give the command, we will switch `APP_DB_MODE=supabase` and wire your Supabase credentials.
 
-## Learn More
+- Run `supabase/schema.sql` in Supabase SQL editor
+- Set:
+  - `APP_DB_MODE=supabase`
+  - `NEXT_PUBLIC_APP_DB_MODE=supabase`
+  - `NEXT_PUBLIC_SUPABASE_URL`
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-To learn more about Next.js, take a look at the following resources:
+## Supabase CLI deploy prep
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Supabase CLI is installed globally (`supabase --version`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Set these in `.env.local` before deploy commands:
 
-## Deploy on Vercel
+- `SUPABASE_PROJECT_REF`
+- `SUPABASE_ACCESS_TOKEN`
+- `SUPABASE_DB_PASSWORD`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+supabase link --project-ref "$SUPABASE_PROJECT_REF"
+supabase db push
+```
+
+## Product pages
+
+- `/` landing page
+- `/login` and `/signup`
+- `/app/dashboard`
+- `/app/transactions` (full CRUD)
+- `/app/cases` (full CRUD)

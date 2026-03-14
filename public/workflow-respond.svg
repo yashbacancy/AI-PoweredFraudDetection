@@ -1,0 +1,164 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Response routing dashboard">
+  <rect width="1200" height="320" rx="16" fill="#0D1117"/>
+  <!-- Header bar -->
+  <rect width="1200" height="36" fill="#161B22"/>
+  <rect y="36" width="1200" height="1" fill="#30363D"/>
+  <circle cx="18" cy="18" r="5" fill="#FF5F57"/>
+  <circle cx="34" cy="18" r="5" fill="#FFBD2E"/>
+  <circle cx="50" cy="18" r="5" fill="#28C840"/>
+  <text x="600" y="23" font-family="ui-monospace,monospace" font-size="11" fill="#8B949E" text-anchor="middle">aegis — policy-engine — responding</text>
+
+  <!-- LEFT PANEL: Policy Rules -->
+  <rect x="16" y="48" width="290" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="28" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">ACTIVE POLICIES</text>
+
+  <!-- Rule 1 -->
+  <rect x="28" y="76" width="266" height="42" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="38" y="91" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" font-weight="600">HIGH_RISK_GEO</text>
+  <rect x="234" y="79" width="46" height="13" rx="3" fill="#122d22"/>
+  <text x="243" y="89" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">ON</text>
+  <text x="38" y="107" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">score ≥ 0.85 AND geo_risk = HIGH → BLOCK</text>
+
+  <!-- Rule 2 -->
+  <rect x="28" y="124" width="266" height="42" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="38" y="139" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" font-weight="600">VELOCITY_ALERT</text>
+  <rect x="234" y="127" width="46" height="13" rx="3" fill="#122d22"/>
+  <text x="243" y="137" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">ON</text>
+  <text x="38" y="155" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">velocity_1h ≥ 5 AND amount &gt; 5000 → REVIEW</text>
+
+  <!-- Rule 3 -->
+  <rect x="28" y="172" width="266" height="42" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="38" y="187" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" font-weight="600">SAFE_MERCHANT</text>
+  <rect x="234" y="175" width="46" height="13" rx="3" fill="#122d22"/>
+  <text x="243" y="185" font-family="ui-monospace,monospace" font-size="8" fill="#3FB950">ON</text>
+  <text x="38" y="203" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">merchant_history ≥ 0.9 AND score &lt; 0.3 → APPROVE</text>
+
+  <!-- Rule 4 -->
+  <rect x="28" y="220" width="266" height="42" rx="6" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+  <text x="38" y="235" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" font-weight="600">STEP_UP_AUTH</text>
+  <rect x="234" y="223" width="46" height="13" rx="3" fill="#1c2128"/>
+  <text x="240" y="233" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">OFF</text>
+  <text x="38" y="251" font-family="ui-monospace,monospace" font-size="8" fill="#484f58">score 0.60–0.75 → STEP_UP</text>
+
+  <rect x="28" y="267" width="266" height="1" fill="#21262D"/>
+  <text x="28" y="282" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">4 policies  ·  3 active  ·  1 disabled</text>
+  <text x="28" y="294" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">Last updated  2026-03-14  09:12 UTC</text>
+
+  <!-- CENTER PANEL: Decision Queue -->
+  <rect x="318" y="48" width="534" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="330" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">DECISION QUEUE</text>
+  <circle cx="452" cy="63" r="4" fill="#3FB950"/>
+  <text x="460" y="67" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">LIVE</text>
+
+  <!-- Table header -->
+  <rect x="318" y="74" width="534" height="20" fill="#1C2128"/>
+  <text x="330" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">EVENT ID</text>
+  <text x="436" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">SCORE</text>
+  <text x="492" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">AMOUNT</text>
+  <text x="574" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">POLICY HIT</text>
+  <text x="706" y="88" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">DECISION</text>
+
+  <!-- Row 1 BLOCK (active) -->
+  <rect x="318" y="94" width="534" height="26" fill="#1c1217"/>
+  <rect x="318" y="94" width="3" height="26" fill="#F78166"/>
+  <text x="330" y="111" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_2d8a10e</text>
+  <text x="436" y="111" font-family="ui-monospace,monospace" font-size="9" fill="#F78166">0.93</text>
+  <text x="492" y="111" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$18,900</text>
+  <text x="574" y="111" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">HIGH_RISK_GEO</text>
+  <rect x="704" y="98" width="56" height="16" rx="4" fill="#3d1c1c"/>
+  <text x="714" y="110" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" font-weight="700">BLOCK</text>
+
+  <!-- Row 2 REVIEW -->
+  <rect x="318" y="120" width="534" height="1" fill="#21262D"/>
+  <rect x="318" y="121" width="534" height="26" fill="#1c1a10"/>
+  <rect x="318" y="121" width="3" height="26" fill="#D29922"/>
+  <text x="330" y="138" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_7f4b29c</text>
+  <text x="436" y="138" font-family="ui-monospace,monospace" font-size="9" fill="#D29922">0.79</text>
+  <text x="492" y="138" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$7,340</text>
+  <text x="574" y="138" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">VELOCITY_ALERT</text>
+  <rect x="704" y="125" width="56" height="16" rx="4" fill="#342c06"/>
+  <text x="712" y="137" font-family="ui-monospace,monospace" font-size="9" fill="#D29922" font-weight="700">REVIEW</text>
+
+  <!-- Row 3 APPROVE -->
+  <rect x="318" y="147" width="534" height="1" fill="#21262D"/>
+  <rect x="318" y="148" width="3" height="26" fill="#3FB950"/>
+  <text x="330" y="165" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_9a3f77d</text>
+  <text x="436" y="165" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">0.11</text>
+  <text x="492" y="165" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$329</text>
+  <text x="574" y="165" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">SAFE_MERCHANT</text>
+  <rect x="704" y="152" width="60" height="16" rx="4" fill="#122d22"/>
+  <text x="710" y="164" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" font-weight="700">APPROVE</text>
+
+  <!-- Row 4 BLOCK -->
+  <rect x="318" y="174" width="534" height="1" fill="#21262D"/>
+  <rect x="318" y="175" width="534" height="26" fill="#1c1217"/>
+  <rect x="318" y="175" width="3" height="26" fill="#F78166"/>
+  <text x="330" y="192" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_5c1e38b</text>
+  <text x="436" y="192" font-family="ui-monospace,monospace" font-size="9" fill="#F78166">0.88</text>
+  <text x="492" y="192" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$12,100</text>
+  <text x="574" y="192" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">HIGH_RISK_GEO</text>
+  <rect x="704" y="179" width="56" height="16" rx="4" fill="#3d1c1c"/>
+  <text x="714" y="191" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" font-weight="700">BLOCK</text>
+
+  <!-- Row 5 APPROVE -->
+  <rect x="318" y="201" width="534" height="1" fill="#21262D"/>
+  <rect x="318" y="202" width="3" height="26" fill="#3FB950"/>
+  <text x="330" y="219" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_8f2a91c</text>
+  <text x="436" y="219" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">0.09</text>
+  <text x="492" y="219" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$4,250</text>
+  <text x="574" y="219" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">SAFE_MERCHANT</text>
+  <rect x="704" y="206" width="60" height="16" rx="4" fill="#122d22"/>
+  <text x="710" y="218" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" font-weight="700">APPROVE</text>
+
+  <!-- Row 6 REVIEW -->
+  <rect x="318" y="228" width="534" height="1" fill="#21262D"/>
+  <rect x="318" y="229" width="534" height="26" fill="#1c1a10"/>
+  <rect x="318" y="229" width="3" height="26" fill="#D29922"/>
+  <text x="330" y="246" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">txn_1b9c44a</text>
+  <text x="436" y="246" font-family="ui-monospace,monospace" font-size="9" fill="#D29922">0.76</text>
+  <text x="492" y="246" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3">$2,800</text>
+  <text x="574" y="246" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">VELOCITY_ALERT</text>
+  <rect x="704" y="233" width="56" height="16" rx="4" fill="#342c06"/>
+  <text x="712" y="245" font-family="ui-monospace,monospace" font-size="9" fill="#D29922" font-weight="700">REVIEW</text>
+
+  <rect x="318" y="255" width="534" height="1" fill="#30363D"/>
+  <text x="330" y="270" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">Showing 6 of 1,284 events this minute</text>
+  <text x="330" y="282" font-family="ui-monospace,monospace" font-size="8" fill="#6E7681">Avg decision latency  <tspan fill="#3FB950">4ms</tspan>   Throughput  <tspan fill="#58A6FF">1,284/s</tspan></text>
+
+  <!-- RIGHT PANEL: Decision Stats -->
+  <rect x="864" y="48" width="320" height="256" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="876" y="69" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681" letter-spacing="1">DECISION SUMMARY (1h)</text>
+
+  <!-- Stat cards -->
+  <rect x="876" y="76" width="132" height="60" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="888" y="94" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950">APPROVED</text>
+  <text x="888" y="120" font-family="ui-monospace,monospace" font-size="24" fill="#3FB950" font-weight="700">74%</text>
+
+  <rect x="1018" y="76" width="132" height="60" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="1030" y="94" font-family="ui-monospace,monospace" font-size="9" fill="#D29922">REVIEW</text>
+  <text x="1030" y="120" font-family="ui-monospace,monospace" font-size="24" fill="#D29922" font-weight="700">16%</text>
+
+  <rect x="876" y="146" width="132" height="60" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="888" y="164" font-family="ui-monospace,monospace" font-size="9" fill="#F78166">BLOCKED</text>
+  <text x="888" y="190" font-family="ui-monospace,monospace" font-size="24" fill="#F78166" font-weight="700">10%</text>
+
+  <rect x="1018" y="146" width="132" height="60" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1"/>
+  <text x="1030" y="164" font-family="ui-monospace,monospace" font-size="9" fill="#8B949E">AVG LATENCY</text>
+  <text x="1030" y="190" font-family="ui-monospace,monospace" font-size="24" fill="#58A6FF" font-weight="700">4ms</text>
+
+  <!-- False positive rate -->
+  <rect x="876" y="218" width="274" height="1" fill="#21262D"/>
+  <text x="876" y="235" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">False Positive Rate</text>
+  <rect x="876" y="241" width="274" height="7" rx="3" fill="#21262D"/>
+  <rect x="876" y="241" width="11" height="7" rx="3" fill="#58A6FF"/>
+  <text x="1152" y="248" font-family="ui-monospace,monospace" font-size="9" fill="#58A6FF" text-anchor="end">3.9%</text>
+
+  <text x="876" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Blocked value (1h)</text>
+  <text x="1152" y="264" font-family="ui-monospace,monospace" font-size="9" fill="#F78166" text-anchor="end">$2.4M</text>
+
+  <text x="876" y="282" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Approved value (1h)</text>
+  <text x="1152" y="282" font-family="ui-monospace,monospace" font-size="9" fill="#3FB950" text-anchor="end">$18.7M</text>
+
+  <text x="876" y="296" font-family="ui-monospace,monospace" font-size="9" fill="#6E7681">Chargebacks (1h)</text>
+  <text x="1152" y="296" font-family="ui-monospace,monospace" font-size="9" fill="#E6EDF3" text-anchor="end">0</text>
+</svg>

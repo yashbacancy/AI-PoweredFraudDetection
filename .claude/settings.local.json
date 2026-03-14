@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/apple/code/ai-powered-fraud-detection-prevention-platform/app/'\\(auth\\)' -type f 2>/dev/null)",
+      "Bash(mkdir -p /Users/apple/code/ai-powered-fraud-detection-prevention-platform/app/api/watchlists/\\\\[id\\\\] && mkdir -p /Users/apple/code/ai-powered-fraud-detection-prevention-platform/app/app/transactions/\\\\[id\\\\])",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
